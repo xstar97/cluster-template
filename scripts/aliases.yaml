@@ -4,3 +4,4 @@ aliases:
   f: "flux"
   gto: "gitops"
   ct: clustertool
+  test-nvidia: "/workspaces/cluster/scripts/talos/nvidia-smi.sh"
