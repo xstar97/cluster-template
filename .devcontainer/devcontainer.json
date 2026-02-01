@@ -1,16 +1,40 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  "name": "TrueCharts",
-  "image": "tccr.io/tccr/devcontainer:v2.0.0@sha256:d8a12070a88e36cf1eb5b14fbeb1d5c866a1e5f8b52cc9e5989fb7f53c154b2b",
-  "initializeCommand": "docker pull tccr.io/tccr/devcontainer:v2.0.0",
+  "name": "TalosCluster",
+  "image": "oci.trueforge.org/containerforge/devcontainer:3.0.2@sha256:cd94f585c61b7376ac9d2e572304c55dfa5e10e45270ed8c66de75540063f466",
   "postCreateCommand": {
-    "setup": "bash ${containerWorkspaceFolder}/.devcontainer/postCreateCommand.sh",
-    "scripts": "chmod +x ${containerWorkspaceFolder}/.devcontainer/postCloneScripts.sh && bash ${containerWorkspaceFolder}/.devcontainer/postCloneScripts.sh --dir ${containerWorkspaceFolder}/scripts"
-  },
+      "setup": "bash ${containerWorkspaceFolder}/.devcontainer/postCreateCommand.sh",
+      "cluster-scripts": "chmod +x ${containerWorkspaceFolder}/.devcontainer/postCloneScripts.sh && bash ${containerWorkspaceFolder}/.devcontainer/postCloneScripts.sh --dir ${containerWorkspaceFolder}/scripts"
+    },
   "postStartCommand": {
-    "git": "git config --global --add safe.directory ${containerWorkspaceFolder}"
-  },
-  "postAttachCommand": "fish",
-  "updateRemoteUserUID": false,
-  "runArgs": ["--privileged"]
+      "git": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+      "srcutils": "bash ${containerWorkspaceFolder}/.devcontainer/srcutils.sh"
+    },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "albert.TabOut",
+        "mikestead.dotenv",
+        "mitchdenny.ecdc",
+        "signageos.signageos-vscode-sops",
+        "EditorConfig.editorconfig",
+        "PKief.material-icon-theme",
+        "usernamehw.errorlens",
+        "redhat.vscode-yaml",
+        "weaveworks.vscode-gitops-tools",
+        "Tim-Koehler.helm-intellisense",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "sandipchitale.vscode-kubernetes-helm-extras",
+        "VadzimNestsiarenka.helm-template-preview-and-more",
+        "karyan40024.helmix",
+        "eamodio.gitlens",
+        "streetsidesoftware.code-spell-checker",
+        "Codium.codium",
+        "mhutchie.git-graph",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "GitHub.copilot"
+      ]
+    }
+  }
 }
