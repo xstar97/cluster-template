@@ -4,3 +4,6 @@ area/github:
 area/kubernetes:
   - changed-files:
       - any-glob-to-any-file: clusters/**/*
+area/docker:
+  - changed-files:
+      - any-glob-to-any-file: docker/**/*
